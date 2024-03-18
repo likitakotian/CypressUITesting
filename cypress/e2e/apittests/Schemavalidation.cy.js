@@ -2,13 +2,13 @@ const Ajv = require('ajv')
 
 const ajv = new Ajv();
 
-describe("schema validation", ()=>{
-    it("test1 ", ()=>{
+describe("schema validation", () => {
+    it("test1 ", () => {
         cy.request({
             method: 'GET',
             url: "",
 
-        }).then((response)=>{
+        }).then((response) => {
             expect(response.status).to.be(200);
             //have a schema. json in util
             const schema = {} //hardcode
@@ -18,16 +18,15 @@ describe("schema validation", ()=>{
             const postid = response.body[0].id
             return postid
         })
-        .then((postid)=>{
-            cy.request({
-                method: 'GET',
-                url : `ndjfjfjfjfjfbhh?${postid}`
-            })
-            .then((response)=>{
-                
-            })
-        })
-    })
+            .then((postid) => {
+                cy.request({
+                    method: 'GET',
+                    url: `ndjfjfjfjfjfbhh?${postid}`
+                })
+                    .then((response) => {
 
+                    })
+            })
+    })
 
 })
